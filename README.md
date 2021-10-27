@@ -1,4 +1,5 @@
 # A Todo App Made With Flutter
+## Star the repo if you like it
 This is a todo app made with flutter. It has many features: 
 - Write a todo
 - Edit a todo
