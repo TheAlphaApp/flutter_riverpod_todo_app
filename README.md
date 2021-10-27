@@ -1,4 +1,4 @@
-# A todo app made with flutter
+# A Todo App Made With Flutter
 This is a todo app made with flutter. It has many features: 
 - Write a todo
 - Edit a todo
@@ -10,7 +10,17 @@ This is a todo app made with flutter. It has many features:
 - Very easy and accessible features
 - Restore backup from a valid json file
 
-
+### Packages used from pub.dev are:
+- hooks_riverpod: ^1.0.0-dev.7
+- flutter_hooks: ^0.18.0
+- uuid: ^3.0.4
+- shared_preferences: ^2.0.8
+- backdrop: ^0.6.2
+- url_launcher: ^6.0.12
+- path_provider: ^2.0.5
+- permission_handler: ^8.2.5
+- share_plus: ^3.0.4
+- file_picker: ^4.1.6
 ## Getting Started
 
 This project is a starting point for a Flutter application.
