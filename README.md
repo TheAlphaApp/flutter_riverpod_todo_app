@@ -1,4 +1,11 @@
-# flutter_riverpod_todo_app
+# A todo app made with flutter
+This is a todo app made with flutter. It has many features: 
+- Write a todo
+- Edit a todo
+- Mark todo as favourite
+- Mark todo as completed
+
+
 
 A new Flutter project.
 
