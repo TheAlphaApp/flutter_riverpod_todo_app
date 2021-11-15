@@ -124,7 +124,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.11"
+    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -141,7 +141,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.11"
+    version: "1.0.0"
   js:
     dependency: transitive
     description:
@@ -260,7 +260,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.10"
+    version: "1.0.0"
   share_plus:
     dependency: "direct main"
     description:

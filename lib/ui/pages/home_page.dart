@@ -124,7 +124,7 @@ class HomeState extends ConsumerState<Home> {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
-            ToolBar(filter: ref.watch(todoFilterType)),
+            ToolBar(filter: ref.watch(todoFilterType.state)),
             if (todos.data.isEmpty) ...[
               const SizedBox(
                 height: 24,

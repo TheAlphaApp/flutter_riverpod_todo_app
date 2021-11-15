@@ -44,7 +44,7 @@ class LocalStorage extends Storage {
   Future<File?> writeData(ListOfTodoModel listOfTodoModel) async {
     // 3
     if (!await Permission.storage.request().isGranted) {
-      return Future.value(null); //TODO: Check value
+      return Future.value(null);
     }
 
     final file = await _localFile;
