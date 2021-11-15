@@ -3,9 +3,8 @@ import 'package:flutter_riverpod_todo_app/providers/todo_filter_type_provider.da
 import 'package:flutter_riverpod_todo_app/providers/todo_list_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-
 final filteredTodos = Provider<ListOfTodoModel>((ref) {
-  final filter = ref.watch(todoFilterType);
+  final filter = ref.watch(todoFilterType.state);
   final todos = ref.watch(todoListProvider);
 
   switch (filter.state) {

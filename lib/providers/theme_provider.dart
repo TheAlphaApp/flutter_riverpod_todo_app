@@ -8,7 +8,7 @@ final isDarkProvider = ChangeNotifierProvider<DarkThemeNotifier>((ref) {
 
 class DarkThemeNotifier extends ChangeNotifier {
   DarkThemeNotifier(this.ref);
-  ProviderRefBase ref;
+  Ref ref;
   bool getTheme() {
     return ref.watch(sharedUtilityProvider).isDarkModeEnabled();
   }
