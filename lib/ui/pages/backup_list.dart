@@ -20,12 +20,15 @@ class BackupList extends ConsumerWidget {
         ..overrideData(listOfTodoModel)
         ..saveData();
       Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Data Restored"),
-          backgroundColor: Colors.green,
-        ),
-      );
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text("Data Restored"),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
     }
 
     void _restoreDataAlert(ListOfTodoModel listOfTodoModel) {
@@ -64,11 +67,15 @@ class BackupList extends ConsumerWidget {
       if (listOfTodoModel != null) {
         _restoreDataAlert(listOfTodoModel);
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Data is Empty!"),
-          ),
-        );
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar
+          ..showSnackBar(
+            const SnackBar(
+              content: Text("Data is Empty!"),
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 2),
+            ),
+          );
       }
     }
 

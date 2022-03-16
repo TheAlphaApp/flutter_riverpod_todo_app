@@ -149,12 +149,15 @@ class HomeState extends ConsumerState<Home> {
                   key: ValueKey(todos.data[i].id),
                   onDismissed: (_) {
                     ref.read(todoListProvider.notifier).remove(todos.data[i]);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Task Deleted!"),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(
+                        const SnackBar(
+                          content: Text("Task Deleted!"),
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
                   },
                   child: ProviderScope(
                     overrides: [

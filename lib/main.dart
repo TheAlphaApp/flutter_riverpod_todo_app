@@ -13,7 +13,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
-        final storage = LocalStorage();
+  final storage = LocalStorage();
   runApp(
     ProviderScope(
       overrides: [
@@ -30,13 +30,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (BuildContext context, WidgetRef ref, _) {
-      final bool isDark = ref.watch(isDarkProvider).getTheme();
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: isDark ? TaskAppTheme.dark() : TaskAppTheme.light(),
-        home: const Home(),
-      );
-    });
+    return Consumer(
+      builder: (BuildContext context, WidgetRef ref, _) {
+        final bool isDark = ref.watch(isDarkProvider).getTheme();
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: isDark ? TaskAppTheme.dark() : TaskAppTheme.light(),
+          home: const Home(),
+        );
+      },
+    );
   }
 }
