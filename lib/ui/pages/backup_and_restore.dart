@@ -4,19 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
 import 'package:flutter_riverpod_todo_app/providers/export_providers.dart';
 import 'package:flutter_riverpod_todo_app/ui/pages/backup_list.dart';
-import 'package:flutter_riverpod_todo_app/utils/storage.dart';
 import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
 import 'package:flutter_riverpod_todo_app/ui/widgets/custom_button.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BackupAndRestorePage extends ConsumerWidget {
-  final Storage storage;
-
-  const BackupAndRestorePage({Key? key, required this.storage})
-      : super(key: key);
+  const BackupAndRestorePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final storage = ref.watch(storageProvider);
     void _showAlert(String msg) {
       showDialog(
         context: context,
@@ -95,12 +92,12 @@ class BackupAndRestorePage extends ConsumerWidget {
               'List of backup files',
               onTap: () async {
                 List<String> listOfFiles = await storage.getListOfBackups();
+                listOfFiles = listOfFiles.reversed.toList();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => BackupList(
-                      storage: storage,
-                      listOfFiles: listOfFiles.reversed.toList(),
+                      listOfFiles: listOfFiles,
                     ),
                   ),
                 );

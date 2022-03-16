@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_todo_app/ui/pages/about_us_page.dart';
 import 'package:flutter_riverpod_todo_app/ui/pages/backup_and_restore.dart';
 import 'package:flutter_riverpod_todo_app/ui/pages/instructions_page.dart';
-import 'package:flutter_riverpod_todo_app/utils/storage.dart';
+
 
 class BackLayerPage extends StatelessWidget {
   const BackLayerPage({
@@ -27,13 +27,10 @@ class BackLayerPage extends StatelessWidget {
             title: const Text('Backup & Restore'),
             leading: const Icon(Icons.restore),
             onTap: () {
-              Storage storage = LocalStorage();
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BackupAndRestorePage(
-                    storage: storage,
-                  ),
+                  builder: (context) => const BackupAndRestorePage(),
                 ),
               );
             },

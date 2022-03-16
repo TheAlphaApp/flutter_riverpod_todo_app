@@ -6,14 +6,19 @@ import 'package:flutter_riverpod_todo_app/utils/styles/task_app_theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'providers/storage_provider.dart';
+import 'utils/storage.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
+        final storage = LocalStorage();
   runApp(
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        storageProvider.overrideWithValue(storage),
       ],
       child: const MyApp(),
     ),

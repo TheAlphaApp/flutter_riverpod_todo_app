@@ -2,21 +2,33 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
-import 'package:flutter_riverpod_todo_app/providers/todo_list_provider.dart';
-import 'package:flutter_riverpod_todo_app/utils/storage.dart';
 import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../providers/export_providers.dart';
+
 class BackupList extends ConsumerWidget {
-  const BackupList(
-      {required this.listOfFiles, required this.storage, Key? key})
-      : super(key: key);
-  final Storage storage;
+  const BackupList({required this.listOfFiles, Key? key}) : super(key: key);
   final List<String> listOfFiles;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void _createAlert(ListOfTodoModel listOfTodoModel) {
+    final storage = ref.watch(storageProvider);
+
+    void _restoreBackup(ListOfTodoModel listOfTodoModel) {
+      ref.read(todoListProvider.notifier)
+        ..overrideData(listOfTodoModel)
+        ..saveData();
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Data Restored"),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
+
+    void _restoreDataAlert(ListOfTodoModel listOfTodoModel) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -32,18 +44,7 @@ class BackupList extends ConsumerWidget {
               ),
             ),
             TextButton(
-              onPressed: () {
-                ref.read(todoListProvider.notifier)
-                  ..overrideData(listOfTodoModel)
-                  ..saveData();
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Data Restored"),
-                    backgroundColor: Colors.green,
-                  ),
-                );
-              },
+              onPressed: () => _restoreBackup(listOfTodoModel),
               child: Text(
                 'Restore',
                 style: TextStyle(
@@ -54,6 +55,25 @@ class BackupList extends ConsumerWidget {
           ],
         ),
       );
+    }
+
+    void _showAlert(int index) async {
+      ListOfTodoModel? listOfTodoModel = await storage.readData(
+        File(listOfFiles[index]),
+      );
+      if (listOfTodoModel != null) {
+        _restoreDataAlert(listOfTodoModel);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Data is Empty!"),
+          ),
+        );
+      }
+    }
+
+    void _shareBackup(int index) {
+      storage.share(listOfFiles[index]);
     }
 
     return Scaffold(
@@ -75,40 +95,31 @@ class BackupList extends ConsumerWidget {
         ],
       ),
       body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: ListView.builder(
-              itemCount: listOfFiles.length,
-              itemBuilder: (context, index) => Card(
-                child: ListTile(
-                  onTap: () async {
-                    ListOfTodoModel? listOfTodoModel = await storage.readData(
-                      File(listOfFiles[index]),
-                    );
-                    if (listOfTodoModel != null) {
-                      _createAlert(listOfTodoModel);
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Data is Empty!!!!!"),
-                        ),
-                      );
-                    }
-                  },
-                  title: Text(
-                    listOfFiles[index].substring(listOfFiles[index].length - 38,
-                        listOfFiles[index].length),
-                  ),
-                  leading: const Icon(Icons.restore_rounded),
-                  trailing: TextButton(
-                    onPressed: () => storage.share(listOfFiles[index]),
-                    child: const Icon(Icons.share),
-                  ),
+        width: MediaQuery.of(context).size.width,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ListView.builder(
+            itemCount: listOfFiles.length,
+            itemBuilder: (context, index) => Card(
+              child: ListTile(
+                onTap: () => _showAlert(index),
+                title: Text(
+                  listOfFiles[index]
+
+                      /// to show only the file name,
+                      .substring(listOfFiles[index].length - 38,
+                          listOfFiles[index].length),
+                ),
+                leading: const Icon(Icons.restore_rounded),
+                trailing: TextButton(
+                  onPressed: () => _shareBackup(index),
+                  child: const Icon(Icons.share),
                 ),
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
