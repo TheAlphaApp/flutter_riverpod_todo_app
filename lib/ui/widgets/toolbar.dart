@@ -12,7 +12,6 @@ class ToolBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(8),
-      
       color: Theme.of(context).colorScheme.secondary,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 4.0),
@@ -33,9 +32,9 @@ class ToolBar extends StatelessWidget {
                   filter: filter,
                 ),
                 CategoryButton(
-                  title: 'Favourite',
-                  buttonFilter: TodoFilterType.favourite,
-                  tooltipKey: favouriteFilterKey,
+                  title: 'Pinned',
+                  buttonFilter: TodoFilterType.pinned,
+                  tooltipKey: pinnedFilterKey,
                   filter: filter,
                 ),
                 CategoryButton(

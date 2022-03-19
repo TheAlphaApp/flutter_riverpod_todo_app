@@ -6,4 +6,4 @@ final addTodoKey = UniqueKey();
 final activeFilterKey = UniqueKey();
 final completedFilterKey = UniqueKey();
 final allFilterKey = UniqueKey();
-final favouriteFilterKey = UniqueKey();
+final pinnedFilterKey = UniqueKey();

@@ -10,7 +10,7 @@ class TaskAppTheme {
     bodyText2: TextStyle(
         fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.black),
     headline1: TextStyle(
-        fontSize: 40.0, fontWeight: FontWeight.w600, color: Colors.black),
+        fontSize: 40.0, fontWeight: FontWeight.w500, color: Colors.black),
     headline2: TextStyle(
         fontSize: 32.0, fontWeight: FontWeight.w400, color: Colors.black),
   );
@@ -23,12 +23,10 @@ class TaskAppTheme {
         fontSize: 18.0, fontWeight: FontWeight.w400, color: Colors.white),
     bodyText2: TextStyle(
         fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.white),
-        
     headline1: TextStyle(
-        fontSize: 40.0, fontWeight: FontWeight.w600, color: Colors.white),
+        fontSize: 40.0, fontWeight: FontWeight.w500, color: Colors.white),
     headline2: TextStyle(
         fontSize: 32.0, fontWeight: FontWeight.w400, color: Colors.white),
-    
   );
 
   // 3
@@ -41,19 +39,19 @@ class TaskAppTheme {
       primaryColor: Colors.white,
       colorScheme: const ColorScheme.light().copyWith(
         primary: Colors.white,
-        secondary: Colors.black,
+        secondary: Colors.black87,
         brightness: Brightness.light,
       ),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(Colors.black),
+        foregroundColor: MaterialStateProperty.all(Colors.black87),
         overlayColor: MaterialStateProperty.all(
-          Colors.black.withOpacity(0.54),
+          Colors.black54,
         ),
       )),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        foregroundColor: Colors.black87,
         elevation: 0,
         centerTitle: true,
         toolbarHeight: 64,
@@ -64,7 +62,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 2.0,
-            color: Colors.black,
+            color: Colors.black87,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -74,7 +72,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 2.0,
-            color: Colors.black,
+            color: Colors.black87,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -84,7 +82,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 1.0,
-            color: Colors.black,
+            color: Colors.black87,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -115,7 +113,7 @@ class TaskAppTheme {
           style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all(Colors.white),
         overlayColor: MaterialStateProperty.all(
-          Colors.white.withOpacity(0.54),
+          Colors.white54,
         ),
       )),
       inputDecorationTheme: const InputDecorationTheme(
@@ -124,7 +122,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 2.0,
-            color: Colors.white,
+            color: Colors.white54,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -134,7 +132,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 2.0,
-            color: Colors.white,
+            color: Colors.white54,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -144,7 +142,7 @@ class TaskAppTheme {
           borderSide: BorderSide(
             style: BorderStyle.solid,
             width: 1.0,
-            color: Colors.white,
+            color: Colors.white54,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),

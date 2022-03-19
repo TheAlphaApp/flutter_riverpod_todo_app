@@ -23,6 +23,7 @@ dependencies:
   permission_handler: ^9.2.0
   share_plus: ^3.0.4
   file_picker: ^4.5.1
+  carbon_icons: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:

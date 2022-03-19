@@ -23,7 +23,7 @@ class AppBarTitle extends StatelessWidget {
               ),
         ),
         Text(
-          trailingTitle == '' ? '' : ' ',
+          trailingTitle == '' || leadingTitle == '' ? '' : ' ',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline2?.copyWith(
                 fontSize: fontSize,

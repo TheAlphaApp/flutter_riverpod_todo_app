@@ -45,7 +45,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
   }
 
 // Toggle favourite
-  void toggleFavourite(String id) async {
+  void togglePinned(String id) async {
     state = ListOfTodoModel(data: [
       for (final todo in state.data)
         if (todo.id == id)
@@ -53,7 +53,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: todo.description,
             isCompleted: todo.isCompleted,
-            isFavourite: !todo.isFavourite,
+            isPinned: !todo.isPinned,
           )
         else
           todo,
@@ -70,7 +70,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: todo.description,
             isCompleted: !todo.isCompleted,
-            isFavourite: todo.isFavourite,
+            isPinned: todo.isPinned,
           )
         else
           todo,
@@ -87,7 +87,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: description,
             isCompleted: todo.isCompleted,
-            isFavourite: todo.isFavourite,
+            isPinned: todo.isPinned,
           )
         else
           todo,

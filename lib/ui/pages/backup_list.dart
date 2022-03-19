@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
 import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
@@ -35,7 +36,7 @@ class BackupList extends ConsumerWidget {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: const Text('Restore this backup?'),
+          content: const Text("Restore this backup?"),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -117,10 +118,10 @@ class BackupList extends ConsumerWidget {
                       .substring(listOfFiles[index].length - 38,
                           listOfFiles[index].length),
                 ),
-                leading: const Icon(Icons.restore_rounded),
+                leading: const Icon(CarbonIcons.restart),
                 trailing: TextButton(
                   onPressed: () => _shareBackup(index),
-                  child: const Icon(Icons.share),
+                  child: const Icon(CarbonIcons.share),
                 ),
               ),
             ),

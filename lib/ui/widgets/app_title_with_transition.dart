@@ -13,8 +13,7 @@ class AppTitleWithTransition extends AppBarTitle {
       opacity: titleAnimController,
       child: AppBarTitle(
         fontSize: fontSize,
-        leadingTitle: 'My',
-        trailingTitle: 'Todos',
+        trailingTitle: 'Todopad',
       ),
     );
   }
