@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
-import 'package:flutter_riverpod_todo_app/utils/constants.dart';
+
+import '../../utils/constants.dart';
+import '../widgets/app_title.dart';
 
 class InstructionPage extends StatelessWidget {
   const InstructionPage({Key? key}) : super(key: key);

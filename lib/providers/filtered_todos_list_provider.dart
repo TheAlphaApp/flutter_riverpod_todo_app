@@ -1,7 +1,8 @@
-import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
-import 'package:flutter_riverpod_todo_app/providers/todo_filter_type_provider.dart';
-import 'package:flutter_riverpod_todo_app/providers/todo_list_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../models/list_of_todo_model.dart';
+import 'todo_filter_type_provider.dart';
+import 'todo_list_provider.dart';
 
 final filteredTodos = Provider<ListOfTodoModel>((ref) {
   final filter = ref.watch(todoFilterType.state);

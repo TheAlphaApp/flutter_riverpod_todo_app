@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod_todo_app/providers/shared_utility_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'shared_utility_provider.dart';
 
 final isDarkProvider = ChangeNotifierProvider<DarkThemeNotifier>((ref) {
   return DarkThemeNotifier(ref);

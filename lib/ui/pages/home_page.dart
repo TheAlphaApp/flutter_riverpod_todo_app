@@ -1,19 +1,16 @@
 import 'package:backdrop/backdrop.dart';
-import 'package:flutter/material.dart';
 import 'package:carbon_icons/carbon_icons.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
-import 'package:flutter_riverpod_todo_app/ui/pages/back_layer_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:flutter_riverpod_todo_app/providers/export_providers.dart';
-
-import 'package:flutter_riverpod_todo_app/utils/hooks/scroll_controller_hook.dart';
-import 'package:flutter_riverpod_todo_app/utils/unique_keys.dart';
-
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title_with_transition.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/todo_item.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/toolbar.dart';
+import '../../providers/export_providers.dart';
+import '../../utils/hooks/scroll_controller_hook.dart';
+import '../../utils/unique_keys.dart';
+import '../widgets/app_title_with_transition.dart';
+import '../widgets/todo_item.dart';
+import '../widgets/toolbar.dart';
+import 'back_layer_page.dart';
 
 class Home extends StatefulHookConsumerWidget {
   const Home({Key? key}) : super(key: key);

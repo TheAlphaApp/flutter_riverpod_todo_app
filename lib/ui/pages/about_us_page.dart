@@ -1,8 +1,9 @@
 import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
-import 'package:flutter_riverpod_todo_app/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../utils/constants.dart';
+import '../widgets/app_title.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({Key? key}) : super(key: key);

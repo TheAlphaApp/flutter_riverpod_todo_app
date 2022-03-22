@@ -1,8 +1,6 @@
-
-import 'package:flutter_riverpod_todo_app/models/todo_model.dart';
+import 'todo_model.dart';
 
 class ListOfTodoModel {
-
   late List<TodoModel> data;
 
   ListOfTodoModel({

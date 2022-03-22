@@ -1,11 +1,11 @@
 import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/about_us_page.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/backup_and_restore.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/instructions_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../providers/export_providers.dart';
+import 'about_us_page.dart';
+import 'backup_and_restore.dart';
+import 'instructions_page.dart';
 
 class BackLayerPage extends StatelessWidget {
   const BackLayerPage({

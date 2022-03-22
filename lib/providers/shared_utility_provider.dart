@@ -1,8 +1,10 @@
 import 'dart:convert';
-import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
-import 'package:flutter_riverpod_todo_app/utils/constants.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../models/list_of_todo_model.dart';
+import '../utils/constants.dart';
 
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError();
@@ -19,7 +21,6 @@ class SharedUtility {
   });
 
   final SharedPreferences sharedPreferences;
-  
 
   ListOfTodoModel loadSharedTodoData() {
     Map<String, dynamic> decodeOptions = jsonDecode(
@@ -28,7 +29,6 @@ class SharedUtility {
     ListOfTodoModel listOfTodoModel = ListOfTodoModel.fromJson(decodeOptions);
     return listOfTodoModel;
   }
-  
 
   void saveSharedTodoData(ListOfTodoModel listOfTodoModel) {
     if (listOfTodoModel.data.isNotEmpty) {
