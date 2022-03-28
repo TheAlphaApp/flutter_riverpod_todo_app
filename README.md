@@ -4,7 +4,10 @@ This is a todo app with local backup and restore functionality made with flutter
 
 - It uses [riverpod](https://riverpod.dev/) as state management solution.
 ## ⬇️Download
-<a href='https://play.google.com/store/apps/details?id=com.appdexon.todopad'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200"/></a>
+
+[<img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="Download from GitHub" height="60">](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/releases/)
+
+<a href='https://play.google.com/store/apps/details?id=com.appdexon.todopad'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="250"/></a>
 ## 📱Screenshots
 
 ![](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/blob/main/screenshots/Frame%20-%201.png?raw=true)|![](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/blob/main/screenshots/Frame%20-%202.png?raw=true)|![](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/blob/main/screenshots/Frame%20-%203.png?raw=true)
