@@ -1,8 +1,10 @@
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod_todo_app/providers/current_todo_provider.dart';
-import 'package:flutter_riverpod_todo_app/providers/todo_list_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../providers/current_todo_provider.dart';
+import '../../providers/todo_list_provider.dart';
 
 class TodoItem extends HookConsumerWidget {
   const TodoItem({Key? key}) : super(key: key);
@@ -19,13 +21,9 @@ class TodoItem extends HookConsumerWidget {
     final textFieldFocusNode = useFocusNode();
 
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 4),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
         color: Theme.of(context).colorScheme.primary,
-        border: Border.all(
-          color: Theme.of(context).colorScheme.secondary.withOpacity(0.45),
-          width: 1,
-        ),
       ),
       child: Focus(
         focusNode: itemFocusNode,
@@ -49,13 +47,11 @@ class TodoItem extends HookConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(4.0),
               child: todo.isCompleted
-                  ? Icon(
-                      Icons.check_circle,
+                  ? Icon(CarbonIcons.checkmark_outline,
                       size: 32.0,
-                      color: Theme.of(context).colorScheme.secondary,
-                    )
+                      color: Theme.of(context).colorScheme.secondary)
                   : Icon(
-                      Icons.circle_outlined,
+                      CarbonIcons.radio_button,
                       size: 32.0,
                       color: Theme.of(context)
                           .colorScheme
@@ -88,16 +84,16 @@ class TodoItem extends HookConsumerWidget {
                 ),
           trailing: GestureDetector(
             onTap: () =>
-                ref.read(todoListProvider.notifier).toggleFavourite(todo.id),
-            child: todo.isFavourite
+                ref.read(todoListProvider.notifier).togglePinned(todo.id),
+            child: todo.isPinned
                 ? Icon(
-                    Icons.star_rate_rounded,
-                    size: 32,
+                    CarbonIcons.pin_filled,
+                    size: 24.0,
                     color: Theme.of(context).colorScheme.secondary,
                   )
                 : Icon(
-                    Icons.star_border_rounded,
-                    size: 32,
+                    CarbonIcons.pin,
+                    size: 24.0,
                     color: Theme.of(context)
                         .colorScheme
                         .secondary

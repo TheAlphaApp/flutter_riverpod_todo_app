@@ -1,19 +1,16 @@
 import 'package:backdrop/backdrop.dart';
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_hooks/flutter_hooks.dart';
-
-import 'package:flutter_riverpod_todo_app/ui/pages/back_layer_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:flutter_riverpod_todo_app/providers/export_providers.dart';
-
-import 'package:flutter_riverpod_todo_app/utils/hooks/scroll_controller_hook.dart';
-import 'package:flutter_riverpod_todo_app/utils/unique_keys.dart';
-
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title_with_transition.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/todo_item.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/toolbar.dart';
+import '../../providers/export_providers.dart';
+import '../../utils/hooks/scroll_controller_hook.dart';
+import '../../utils/unique_keys.dart';
+import '../widgets/app_title_with_transition.dart';
+import '../widgets/todo_item.dart';
+import '../widgets/toolbar.dart';
+import 'back_layer_page.dart';
 
 class Home extends StatefulHookConsumerWidget {
   const Home({Key? key}) : super(key: key);
@@ -65,24 +62,11 @@ class HomeState extends ConsumerState<Home> {
           leading: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Icon(
-              Icons.blur_circular_rounded,
+              CarbonIcons.task,
               size: 32,
             ),
           ),
           actions: [
-            InkWell(
-              splashColor: Colors.transparent,
-              onTap: _toggleDarkMode,
-              child: isDark
-                  ? const Icon(
-                      Icons.light_mode_outlined,
-                      size: 32,
-                    )
-                  : const Icon(
-                      Icons.dark_mode_outlined,
-                      size: 32,
-                    ),
-            ),
             BackdropToggleButton(
               color: isDark ? Colors.white : Colors.black,
               icon: AnimatedIcons.close_menu,
@@ -142,19 +126,23 @@ class HomeState extends ConsumerState<Home> {
             ],
             for (var i = 0; i < todos.data.length; i++) ...[
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 4),
                 decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(8)),
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(4),
+                ),
                 child: Dismissible(
                   key: ValueKey(todos.data[i].id),
                   onDismissed: (_) {
                     ref.read(todoListProvider.notifier).remove(todos.data[i]);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Task Deleted!"),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(
+                        const SnackBar(
+                          content: Text("Task Deleted!"),
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
                   },
                   child: ProviderScope(
                     overrides: [
@@ -164,6 +152,10 @@ class HomeState extends ConsumerState<Home> {
                     child: const TodoItem(),
                   ),
                 ),
+              ),
+              const Divider(
+                height: 1,
+                thickness: 1,
               ),
             ]
           ],

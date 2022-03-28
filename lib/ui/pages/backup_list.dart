@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../models/list_of_todo_model.dart';
 import '../../providers/export_providers.dart';
+import '../widgets/app_title.dart';
 
 class BackupList extends ConsumerWidget {
   const BackupList({required this.listOfFiles, Key? key}) : super(key: key);
@@ -20,19 +21,22 @@ class BackupList extends ConsumerWidget {
         ..overrideData(listOfTodoModel)
         ..saveData();
       Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Data Restored"),
-          backgroundColor: Colors.green,
-        ),
-      );
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text("Data Restored"),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
     }
 
     void _restoreDataAlert(ListOfTodoModel listOfTodoModel) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: const Text('Restore this backup?'),
+          content: const Text("Restore this backup?"),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -64,11 +68,15 @@ class BackupList extends ConsumerWidget {
       if (listOfTodoModel != null) {
         _restoreDataAlert(listOfTodoModel);
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Data is Empty!"),
-          ),
-        );
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar
+          ..showSnackBar(
+            const SnackBar(
+              content: Text("Data is Empty!"),
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 2),
+            ),
+          );
       }
     }
 
@@ -110,10 +118,10 @@ class BackupList extends ConsumerWidget {
                       .substring(listOfFiles[index].length - 38,
                           listOfFiles[index].length),
                 ),
-                leading: const Icon(Icons.restore_rounded),
+                leading: const Icon(CarbonIcons.restart),
                 trailing: TextButton(
                   onPressed: () => _shareBackup(index),
-                  child: const Icon(Icons.share),
+                  child: const Icon(CarbonIcons.share),
                 ),
               ),
             ),

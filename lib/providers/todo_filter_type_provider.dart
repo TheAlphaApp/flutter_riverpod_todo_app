@@ -4,7 +4,7 @@ enum TodoFilterType {
   all,
   active,
   completed,
-  favourite,
+  pinned,
 }
 
 final todoFilterType = StateProvider((ref) => TodoFilterType.active);

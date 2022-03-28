@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
-import 'package:flutter_riverpod_todo_app/utils/constants.dart';
+
+import '../../utils/constants.dart';
+import '../widgets/app_title.dart';
 
 class InstructionPage extends StatelessWidget {
   const InstructionPage({Key? key}) : super(key: key);
@@ -59,11 +60,11 @@ class InstructionPage extends StatelessWidget {
               ),
               const Divider(height: 16),
               Text(
-                'How to mark any todo as Favourite?',
+                'How to pin a todo',
                 style: headline6,
               ),
               Text(
-                'Tap on the star icon button trailing the todo name.',
+                'Tap on the pin icon button trailing the todo name. It will be pinned to the Pinned tab.',
                 style: bodyText1,
               ),
               const Divider(height: 16),

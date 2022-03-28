@@ -1,9 +1,9 @@
-import 'package:flutter_riverpod_todo_app/providers/shared_utility_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:flutter_riverpod_todo_app/models/list_of_todo_model.dart';
-import 'package:flutter_riverpod_todo_app/models/todo_model.dart';
+import '../models/list_of_todo_model.dart';
+import '../models/todo_model.dart';
+import 'shared_utility_provider.dart';
 
 const _uuid = Uuid();
 final todoListProvider = StateNotifierProvider<TodoList, ListOfTodoModel>(
@@ -45,7 +45,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
   }
 
 // Toggle favourite
-  void toggleFavourite(String id) async {
+  void togglePinned(String id) async {
     state = ListOfTodoModel(data: [
       for (final todo in state.data)
         if (todo.id == id)
@@ -53,7 +53,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: todo.description,
             isCompleted: todo.isCompleted,
-            isFavourite: !todo.isFavourite,
+            isPinned: !todo.isPinned,
           )
         else
           todo,
@@ -70,7 +70,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: todo.description,
             isCompleted: !todo.isCompleted,
-            isFavourite: todo.isFavourite,
+            isPinned: todo.isPinned,
           )
         else
           todo,
@@ -87,7 +87,7 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
             id: todo.id,
             description: description,
             isCompleted: todo.isCompleted,
-            isFavourite: todo.isFavourite,
+            isPinned: todo.isPinned,
           )
         else
           todo,

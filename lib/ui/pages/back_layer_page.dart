@@ -1,8 +1,11 @@
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/about_us_page.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/backup_and_restore.dart';
-import 'package:flutter_riverpod_todo_app/ui/pages/instructions_page.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../providers/export_providers.dart';
+import 'about_us_page.dart';
+import 'backup_and_restore.dart';
+import 'instructions_page.dart';
 
 class BackLayerPage extends StatelessWidget {
   const BackLayerPage({
@@ -25,7 +28,7 @@ class BackLayerPage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('Backup & Restore'),
-            leading: const Icon(Icons.restore),
+            leading: const Icon(CarbonIcons.renew),
             onTap: () {
               Navigator.push(
                 context,
@@ -37,7 +40,7 @@ class BackLayerPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('Instructions'),
-            leading: const Icon(Icons.info_outline_rounded),
+            leading: const Icon(CarbonIcons.information),
             onTap: () {
               Navigator.push(
                 context,
@@ -47,14 +50,29 @@ class BackLayerPage extends StatelessWidget {
               );
             },
           ),
+          Consumer(
+            builder: (context, ref, _) {
+              return SwitchListTile(
+                title: const Text('Dark Mode'),
+                activeColor: Colors.white,
+                secondary: const Icon(CarbonIcons.asleep),
+                value: ref.watch(isDarkProvider).getTheme(),
+                onChanged: (bool value) {
+                  ref.read(isDarkProvider.notifier).toggleTheme();
+                },
+              );
+            },
+          ),
           ListTile(
             focusColor: Colors.red,
-            leading: const Icon(Icons.verified_user),
+            leading: const Icon(CarbonIcons.enterprise),
             title: const Text('About US'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AboutUsPage()),
+                MaterialPageRoute(
+                  builder: (context) => const AboutUsPage(),
+                ),
               );
             },
           ),

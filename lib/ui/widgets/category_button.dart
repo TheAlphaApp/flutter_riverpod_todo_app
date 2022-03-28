@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/providers/todo_filter_type_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../providers/todo_filter_type_provider.dart';
 
 class CategoryButton extends StatelessWidget {
   const CategoryButton({

@@ -1,7 +1,9 @@
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_todo_app/ui/widgets/app_title.dart';
-import 'package:flutter_riverpod_todo_app/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../utils/constants.dart';
+import '../widgets/app_title.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({Key? key}) : super(key: key);
@@ -38,47 +40,57 @@ class AboutUsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const Spacer(),
             const Icon(
-              Icons.insert_emoticon,
+              CarbonIcons.task,
               size: 64,
             ),
             const SizedBox(
               height: 8,
             ),
             const AppBarTitle(
+              trailingTitle: 'Todopad',
+              fontSize: 36,
+            ),
+            const AppBarTitle(
+              leadingTitle: 'by',
+              fontSize: 16,
+            ),
+            const AppBarTitle(
               leadingTitle: 'App',
               trailingTitle: 'Dexon',
-              fontSize: 24,
+              fontSize: 20,
             ),
             const SizedBox(
-              height: 8,
+              height: 48,
             ),
+            const Spacer(),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
                 IconButton(
                   onPressed: () => _launchUrl(fbUrl),
                   icon: const Icon(
-                    Icons.facebook,
-                    size: 32,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () => _launchUrl(githubUrl),
-                  icon: const Icon(
-                    Icons.favorite,
+                    CarbonIcons.logo_facebook,
                     size: 32,
                   ),
                 ),
                 IconButton(
                   onPressed: () => _launchUrl(mailUrl),
                   icon: const Icon(
-                    Icons.email,
+                    CarbonIcons.email,
+                    size: 32,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => _launchUrl(githubUrl),
+                  icon: const Icon(
+                    CarbonIcons.logo_github,
                     size: 32,
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
