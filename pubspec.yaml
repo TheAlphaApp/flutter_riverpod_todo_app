@@ -2,7 +2,7 @@ name: flutter_riverpod_todo_app
 description: A new Flutter project.
 
 publish_to: 'none' 
-version: 1.2.4+2
+version: 1.2.5+3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -15,11 +15,11 @@ dependencies:
   flutter_hooks: ^0.18.2+1
   uuid: ^3.0.6
   shared_preferences: ^2.0.13
-  backdrop: ^0.7.1
+  backdrop: ^0.8.0
   url_launcher: ^6.0.20
   path_provider: ^2.0.9
   permission_handler: ^9.2.0
-  share_plus: ^3.0.4
+  share_plus: ^4.0.4
   file_picker: ^4.5.1
   carbon_icons: ^0.0.1+2
 
