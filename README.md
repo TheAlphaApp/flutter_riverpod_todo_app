@@ -1,16 +1,22 @@
 # 💙An Elegant "Todopad" Made With Flutter💙
+[![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
+![release](https://img.shields.io/github/v/release/thealphaapp/flutter_riverpod_todo_app)
+![License](https://img.shields.io/github/license/TheAlphaApp/flutter_riverpod_todo_app)
+![Downloads](https://img.shields.io/github/downloads/TheAlphaApp/flutter_riverpod_todo_app/total?label=download%40github)
 ## 🌟Star🌟 the repo if you like it
-This is a todo app with local backup and restore functionality made with flutter.
+This is a FOSS todo app with local backup and restore functionality made with flutter.
 
-- It uses [riverpod](https://riverpod.dev/) as state management solution.
+> Special Mention :  It uses [riverpod](https://riverpod.dev/) as state management solution.
 
 ## ⬇️Download
 #### v1.2.4+2 (Latest)
+
 [<img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="Download from GitHub" height="60">](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/releases/)
 
 [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Download from IzzyOnDroid" height="90">](https://apt.izzysoft.de/fdroid/index/apk/com.example.flutter_riverpod_todo_app)
 
 #### v1.0.0
+> There will not be any future update on play store. It is recommended to download from the [github release](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/releases/). P.S.  If you want to show your love, you can leave a rating on the play store.
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Download from IzzyOnDroid" height="90">](https://play.google.com/store/apps/details?id=com.appdexon.todopad)
 ## 📱Screenshots
 
