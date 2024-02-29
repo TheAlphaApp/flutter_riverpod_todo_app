@@ -9,7 +9,7 @@ This is a FOSS todo app with local backup and restore functionality made with fl
 > Special Mention :  It uses [riverpod](https://riverpod.dev/) as state management solution.
 
 ## ⬇️Download
-### v1.2.5+3 (Latest)
+### v1.2.6+4 (Latest)
 
 [<img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="Download from GitHub" height="60">](https://github.com/TheAlphaApp/flutter_riverpod_todo_app/releases/)
 
