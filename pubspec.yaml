@@ -2,7 +2,7 @@ name: flutter_riverpod_todo_app
 description: A new Flutter project.
 
 publish_to: 'none' 
-version: 1.2.5+3
+version: 1.2.6+4
 
 environment:
   sdk: ">=3.2.6 <4.0.0"
