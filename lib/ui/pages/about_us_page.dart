@@ -10,9 +10,9 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _launchUrl(String _url) async {
-      await canLaunch(_url)
-          ? await launch(_url)
+    void _launchUrl(Uri _url) async {
+      await canLaunchUrl(_url)
+          ? await launchUrl(_url)
           : throw 'Could not launch $_url';
     }
 
@@ -69,21 +69,21 @@ class AboutUsPage extends StatelessWidget {
               alignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  onPressed: () => _launchUrl(fbUrl),
+                  onPressed: () => _launchUrl(Uri.parse(fbUrl)),
                   icon: const Icon(
                     CarbonIcons.logo_facebook,
                     size: 32,
                   ),
                 ),
                 IconButton(
-                  onPressed: () => _launchUrl(mailUrl),
+                  onPressed: () => _launchUrl(Uri.parse(mailUrl)),
                   icon: const Icon(
                     CarbonIcons.email,
                     size: 32,
                   ),
                 ),
                 IconButton(
-                  onPressed: () => _launchUrl(githubUrl),
+                  onPressed: () => _launchUrl(Uri.parse(githubUrl)),
                   icon: const Icon(
                     CarbonIcons.logo_github,
                     size: 32,

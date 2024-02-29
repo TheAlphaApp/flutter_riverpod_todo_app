@@ -23,14 +23,16 @@ class HomeState extends ConsumerState<Home> {
   @override
   void initState() {
     super.initState();
-    ref.read(todoListProvider.notifier).loadData();
+    Future(() {
+      ref.read(todoListProvider.notifier).loadData();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    void _toggleDarkMode() {
-      ref.read(isDarkProvider.notifier).toggleTheme();
-    }
+    // void _toggleDarkMode() {
+    //   ref.read(isDarkProvider.notifier).toggleTheme();
+    // }
 
     AnimationController mainTitleAnimController = useAnimationController(
         duration: kThemeAnimationDuration, initialValue: 1);
@@ -84,7 +86,7 @@ class HomeState extends ConsumerState<Home> {
           children: [
             AppTitleWithTransition(
               mainTitleAnimController,
-              fontSize: textTheme.headline1?.fontSize,
+              fontSize: textTheme.displayLarge?.fontSize,
             ),
             const SizedBox(
               height: 8,
@@ -105,7 +107,7 @@ class HomeState extends ConsumerState<Home> {
               child: Text(
                 '${ref.watch(uncompletedTodoCount).toString()} of ${ref.watch(totalTodoCount).toString()} items left',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             ToolBar(filter: ref.watch(todoFilterType.state)),

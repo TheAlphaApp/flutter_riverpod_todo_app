@@ -34,7 +34,7 @@ class CategoryButton extends StatelessWidget {
         onPressed: () => filter.state = buttonFilter,
         style: ButtonStyle(
           textStyle: MaterialStateProperty.all(
-            Theme.of(context).textTheme.button,
+            Theme.of(context).textTheme.labelLarge,
           ),
           visualDensity: VisualDensity.compact,
           foregroundColor: MaterialStateProperty.all(

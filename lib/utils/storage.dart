@@ -96,6 +96,6 @@ class LocalStorage extends Storage {
   @override
   void share(String path) async {
     // 1
-    Share.shareFiles([path], text: 'Back up'); // 2
+    Share.shareXFiles([XFile(path)], text: 'Back up'); // 2
   }
 }

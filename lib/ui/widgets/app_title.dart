@@ -18,21 +18,21 @@ class AppBarTitle extends StatelessWidget {
         Text(
           leadingTitle,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline2?.copyWith(
+          style: Theme.of(context).textTheme.displayMedium?.copyWith(
                 fontSize: fontSize,
               ),
         ),
         Text(
           trailingTitle == '' || leadingTitle == '' ? '' : ' ',
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline2?.copyWith(
+          style: Theme.of(context).textTheme.displayMedium?.copyWith(
                 fontSize: fontSize,
               ),
         ),
         Text(
           trailingTitle,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline1?.copyWith(
+          style: Theme.of(context).textTheme.displayLarge?.copyWith(
                 fontSize: fontSize,
               ),
         ),

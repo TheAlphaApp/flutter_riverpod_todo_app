@@ -3,35 +3,36 @@ import 'package:flutter/material.dart';
 class TaskAppTheme {
   // 1
   static TextTheme lightTextTheme = const TextTheme(
-    button: TextStyle(
+    labelLarge: TextStyle(
         fontSize: 18.0, fontWeight: FontWeight.w400, color: Colors.black),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         fontSize: 18.0, fontWeight: FontWeight.w400, color: Colors.black),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
         fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.black),
-    headline1: TextStyle(
+    displayLarge: TextStyle(
         fontSize: 40.0, fontWeight: FontWeight.w500, color: Colors.black),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
         fontSize: 32.0, fontWeight: FontWeight.w400, color: Colors.black),
   );
 
   // 2
   static TextTheme darkTextTheme = const TextTheme(
-    button: TextStyle(
+    labelLarge: TextStyle(
         fontSize: 18.0, fontWeight: FontWeight.w400, color: Colors.white),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         fontSize: 18.0, fontWeight: FontWeight.w400, color: Colors.white),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
         fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.white),
-    headline1: TextStyle(
+    displayLarge: TextStyle(
         fontSize: 40.0, fontWeight: FontWeight.w500, color: Colors.white),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
         fontSize: 32.0, fontWeight: FontWeight.w400, color: Colors.white),
   );
 
   // 3
   static light() {
     return ThemeData(
+      useMaterial3: true,
       textTheme: lightTextTheme,
       fontFamily: 'Rubik',
       textSelectionTheme:

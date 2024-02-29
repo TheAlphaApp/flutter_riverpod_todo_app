@@ -8,8 +8,8 @@ class InstructionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? headline6 = Theme.of(context).textTheme.headline6;
-    TextStyle? bodyText1 = Theme.of(context).textTheme.bodyText1;
+    TextStyle? headline6 = Theme.of(context).textTheme.titleLarge;
+    TextStyle? bodyText1 = Theme.of(context).textTheme.bodyLarge;
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle(
