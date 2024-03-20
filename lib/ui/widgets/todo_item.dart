@@ -107,7 +107,7 @@ class TodoItem extends HookConsumerWidget {
               ),
             ),
             const SizedBox(
-              height: 4,
+              height: 2,
             ),
             const Divider(
               height: 1,
