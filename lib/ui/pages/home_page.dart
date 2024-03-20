@@ -126,43 +126,53 @@ class HomeState extends ConsumerState<Home> {
                 textAlign: TextAlign.center,
               ),
             ],
-            for (var i = 0; i < todos.data.length; i++) ...[
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Dismissible(
-                  key: ValueKey(todos.data[i].id),
-                  onDismissed: (_) {
-                    ref.read(todoListProvider.notifier).remove(todos.data[i]);
-                    ScaffoldMessenger.of(context)
-                      ..hideCurrentSnackBar()
-                      ..showSnackBar(
-                        const SnackBar(
-                          content: Text("Task Deleted!"),
-                          backgroundColor: Colors.red,
-                          duration: Duration(seconds: 2),
-                        ),
-                      );
-                  },
-                  child: ProviderScope(
-                    overrides: [
-                      if (ref.watch(totalTodoCount) != 0)
-                        currentTodo.overrideWithValue(todos.data[i])
-                    ],
-                    child: const TodoItem(),
-                  ),
-                ),
-              ),
-              const Divider(
-                height: 1,
-                thickness: 1,
-              ),
-            ]
+            /// ReorderableListView.builder is used to reorder the list of todos
+            /// using drag and drop.
+            ReorderableListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                header: null,
+                shrinkWrap: true,
+                itemCount: todos.data.length,
+                itemBuilder: (context, i) {
+                  return Container(
+                    key: ValueKey(todos.data[i].id),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Dismissible(
+                      key: ValueKey(todos.data[i].id),
+                      onDismissed: (_) {
+                        ref
+                            .read(todoListProvider.notifier)
+                            .remove(todos.data[i]);
+                        ScaffoldMessenger.of(context)
+                          ..hideCurrentSnackBar()
+                          ..showSnackBar(
+                            const SnackBar(
+                              content: Text("Task Deleted!"),
+                              backgroundColor: Colors.red,
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                      },
+                      child: ProviderScope(
+                        overrides: [
+                          if (ref.watch(totalTodoCount) != 0)
+                            currentTodo.overrideWithValue(todos.data[i])
+                        ],
+                        child: const TodoItem(),
+                      ),
+                    ),
+                  );
+                },
+                onReorder: (oldIndex, newIndex) => ref
+                    .read(todoListProvider.notifier)
+                    .reorder(oldIndex, newIndex)),
           ],
         ),
       ),
     );
   }
 }
+

@@ -103,4 +103,24 @@ class TodoList extends StateNotifier<ListOfTodoModel> {
 
     saveData();
   }
+
+  /// Reorders the list by moving an item from [oldIndex] to [newIndex].
+  ///
+  /// This method takes the [oldIndex] and [newIndex] as parameters and
+  /// reorders the list accordingly. It retrieves the list of items from
+  /// the current state, removes the item at the [oldIndex], and inserts
+  /// it at the [newIndex]. Finally, it updates the state with the new
+  /// list and saves the data.
+  void reorder(int oldIndex, int newIndex) {
+    /// If the new index is greater than the old index, we need to subtract 1 from the new index.
+    /// This is because when we remove the item from the old index, the items below it will shift up by one.
+    if (newIndex > oldIndex) {
+      newIndex -= 1;
+    }
+    final items = state.data;
+    final item = items.removeAt(oldIndex);
+    items.insert(newIndex, item);
+    state = ListOfTodoModel(data: items);
+    saveData();
+  }
 }
