@@ -2,6 +2,7 @@ import 'package:backdrop/backdrop.dart';
 import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod_todo_app/utils/assets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../providers/export_providers.dart';
@@ -116,7 +117,7 @@ class HomeState extends ConsumerState<Home> {
                 height: 24,
               ),
               Image.asset(
-                'assets/images/empty_light.png',
+                Assets.noTask,
               ),
               const SizedBox(
                 height: 24,
