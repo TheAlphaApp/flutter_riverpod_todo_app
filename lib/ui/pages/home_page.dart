@@ -126,6 +126,8 @@ class HomeState extends ConsumerState<Home> {
                 textAlign: TextAlign.center,
               ),
             ],
+            /// ReorderableListView.builder is used to reorder the list of todos
+            /// using drag and drop.
             ReorderableListView.builder(
                 header: null,
                 shrinkWrap: true,
